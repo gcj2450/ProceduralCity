@@ -67,7 +67,7 @@ public class BuildingMeshGeneratorExecutor : MonoBehaviour
 		
 		_buildingsMeshGenerator.Execute (buildings);
 		
-		float distance = height / (2.0f * _camera.near * Mathf.Tan (Mathf.Deg2Rad * _camera.fov / 2.0f));
+		float distance = height / (2.0f * _camera.nearClipPlane * Mathf.Tan (Mathf.Deg2Rad * _camera.fieldOfView / 2.0f));
 		_camera.transform.position = new Vector3 (width / 2.0f, height / 2.0f, -distance);
 	}
 }

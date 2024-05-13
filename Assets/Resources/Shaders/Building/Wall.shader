@@ -1,3 +1,5 @@
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
 // Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
 
 Shader "Building/Wall" {
@@ -94,7 +96,7 @@ Shader "Building/Wall" {
 		        v2f o;
 		        TANGENT_SPACE_ROTATION; 
 		        
-		        o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+		        o.pos = UnityObjectToClipPos(v.vertex);
 		        o.normal = v.normal;
 		        o.height = mul(unity_ObjectToWorld, v.vertex).y;
 		        

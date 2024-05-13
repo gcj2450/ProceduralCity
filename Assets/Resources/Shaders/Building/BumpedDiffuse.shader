@@ -1,3 +1,5 @@
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
 // Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
 
 Shader "Building/Bumped Diffuse" {
@@ -66,7 +68,7 @@ Shader "Building/Bumped Diffuse" {
 		        v2f o;
 		        TANGENT_SPACE_ROTATION;
 		        
-		        o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+		        o.pos = UnityObjectToClipPos(v.vertex);
 		        o.color = v.color;
 		        o.height = mul(unity_ObjectToWorld, v.vertex).y;
 		        

@@ -1,3 +1,5 @@
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
 Shader "Road/Block Ground" {
 	Properties {
 		_AsphaltTex ("Asphalt", 2D) = "white" {}
@@ -63,7 +65,7 @@ Shader "Road/Block Ground" {
 		    {
 		        v2f o;
 		        
-		        o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+		        o.pos = UnityObjectToClipPos(v.vertex);
 		        o.normal = v.normal;
 		        o.lightDirection = ObjSpaceLightDir(v.vertex);
 		        o.uv = v.texcoord1;
